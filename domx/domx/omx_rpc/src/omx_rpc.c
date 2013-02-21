@@ -378,7 +378,9 @@ void *RPC_CallbackThread(void *data)
 					//the listener will not free the packet on OMX_ErrorHardware errors.
 					RPC_freePacket(pBuffer);
 					pBuffer = NULL;
-					((struct omx_packet *) pBufferError)->result = OMX_ErrorHardware;
+					//((struct omx_packet *) pBufferError)->result = OMX_ErrorHardware;
+					struct omx_packet *pOmxPacket = ((struct omx_packet *) pBufferError);
+					memcpy(&pOmxPacket->result, OMX_ErrorHardware, sizeof(OMX_S32));
 					eError = TIMM_OSAL_WriteToPipe(pRPCCtx->pMsgPipe[nFxnIdx],
 													&pBuff,
 													RPC_MSG_SIZE_FOR_PIPE,
