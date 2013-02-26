@@ -70,3 +70,6 @@ TW_CUSTOM_POWER_BUTTON := 107
 
 # ICS ril version
 LEGACY_RIL := true
+
+# bionic optimizations
+ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
