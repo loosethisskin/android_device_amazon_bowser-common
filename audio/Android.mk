@@ -2,6 +2,10 @@ ifeq ($(findstring bowser, $(TARGET_BOOTLOADER_BOARD_NAME)),bowser)
 
 LOCAL_PATH := $(call my-dir)
 
+###
+### AUDIO PRIMARY FOR BOWSER
+###
+
 include $(CLEAR_VARS)
 
 # Should change this so the enable variable gets used as the name?
