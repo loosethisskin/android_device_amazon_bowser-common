@@ -72,6 +72,3 @@ TW_MAX_BRIGHTNESS := 254
 TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/bq27541
 # ICS ril version
 LEGACY_RIL := true
-
-# bionic optimizations
-ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
