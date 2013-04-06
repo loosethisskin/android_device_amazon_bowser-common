@@ -324,9 +324,7 @@ void *RPC_CallbackThread(void *data)
                 {
 		    for(nFxnIdx = 0; nFxnIdx < RPC_OMX_MAX_FUNCTION_LIST; nFxnIdx++)
 		    {
-			//((struct omx_packet *) pBufferError)->result = OMX_ErrorHardware;
-			struct omx_packet *pOmxPacket = ((struct omx_packet *) pBufferError);
-			memcpy(&pOmxPacket->result, OMX_ErrorHardware, sizeof(OMX_S32));
+			((struct omx_packet *) pBufferError)->result = OMX_ErrorHardware;
 			TIMM_OSAL_WriteToPipe(pRPCCtx->pMsgPipe[nFxnIdx], &pBuff, RPC_MSG_SIZE_FOR_PIPE, TIMM_OSAL_SUSPEND);
 			if(eError != TIMM_OSAL_ERR_NONE)
 				DOMX_ERROR("Write to pipe failed");
